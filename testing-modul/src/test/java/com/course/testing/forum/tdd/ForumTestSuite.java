@@ -79,6 +79,8 @@ public class ForumTestSuite {
                 "Thanks for all good words",
                 forumUser.getAkaUser()
         );
+        forumUser.addComment(forumPost, forumComment.getAuthor(), forumComment.getCommentBody());
+
         //When
         ForumComment retrievedForumComment;
         retrievedForumComment = forumUser.getComments(0);
@@ -111,6 +113,37 @@ public class ForumTestSuite {
 
         //Then
         Assertions.assertFalse(result);
+    }
+
+    @Test
+    void testRemovePost() {
+        //Given
+        ForumUser forumUser = new ForumUser("Szaka", "TomekSz");
+        ForumPost forumPost = new ForumPost("Hello all, this is my first contribution here", "Szaka");
+        forumUser.addPost(forumPost.getAuthor(), forumPost.getPostBody());
+
+        //When
+        boolean result = forumUser.removePost(forumPost);
+
+        //Then
+        Assertions.assertTrue(result);
+        Assertions.assertEquals(0, forumUser.getPostQuantity());
+    }
+
+    @Test
+    void testRemoveComment() {
+        //Given
+        ForumUser forumUser = new ForumUser("Szaka","TomekSz");
+        ForumPost forumPost = new ForumPost("Hello all, this is my first contribution here", "Szaka");
+        ForumComment forumComment = new ForumComment(forumPost,"thank you for your all good words", "Szaka");
+        forumUser.addComment(forumPost, forumComment.getAuthor(), forumComment.getCommentBody());
+        //When
+        boolean result = forumUser.removeComment(forumComment);
+
+        //Then
+        Assertions.assertTrue(result);
+        Assertions.assertEquals(0, forumUser.getCommentQuantity());
+
     }
 }
 
