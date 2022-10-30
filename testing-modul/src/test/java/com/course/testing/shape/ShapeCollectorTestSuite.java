@@ -15,7 +15,7 @@ public class ShapeCollectorTestSuite {
 
     @AfterAll
     public static void afterAll() {
-        System.out.println("Tests end");
+        System.out.println("Tests end.");
     }
 
     @BeforeEach
@@ -68,15 +68,18 @@ public class ShapeCollectorTestSuite {
         Shape square = new Square("Square1", 9);
         Shape circle = new Circle("Circle1", 9.5);
         Shape triangle = new Triangle("Triangle1", 9.4, 5.8);
-        ShapeCollector shapeCollector = new ShapeCollector(square);
+        ShapeCollector shapeCollector = new ShapeCollector();
         //ShapeCollector shapeCollector2= new ShapeCollector(triangle);
         //When
         shapeCollector.addFigure(square);
         shapeCollector.addFigure(triangle);
         shapeCollector.addFigure(circle);
+        shapeCollector.shoWFigures();
+        String result = square.getShapeName() + "\n" +
+                        circle.getShapeName() + "\n" +
+                        triangle.getShapeName();
 
         //Then
-        shapeCollector.shoWFigures();
-        // need implement assertions
+        Assertions.assertEquals( "Square1\nCircle1\nTriangle1", result);
     }
 }

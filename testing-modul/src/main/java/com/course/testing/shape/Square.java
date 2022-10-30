@@ -33,9 +33,9 @@ public class Square implements Shape {
     }
 
     @Override
-    public void getShapeName() {
+    public String getShapeName() {
 
-        System.out.println("This is: " + getName());
+        return getName();
     }
 
     @Override

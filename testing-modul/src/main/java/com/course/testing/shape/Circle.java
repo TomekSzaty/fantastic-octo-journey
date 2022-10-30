@@ -34,12 +34,12 @@ public class Circle implements Shape {
     }
 
     @Override
-    public void getShapeName() {
-        System.out.println("This is " +  getName());
+    public String getShapeName() {
+        return getName();
     }
 
     @Override
     public void getField() {
-        System.out.println("Field :" +  (3.14 * radius * radius));
+        System.out.println("Field :" + (3.14 * radius * radius));
     }
 }

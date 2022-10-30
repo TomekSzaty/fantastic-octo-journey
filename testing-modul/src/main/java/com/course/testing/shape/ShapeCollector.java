@@ -8,6 +8,9 @@ public class ShapeCollector {
     private Shape shape;
     private List<Shape> shapeList = new ArrayList<>();
 
+    public ShapeCollector() {
+    }
+
     public ShapeCollector(Shape shape) {
         this.shape = shape;
     }
@@ -30,13 +33,15 @@ public class ShapeCollector {
     }
 
     public Shape getShape(int shapeNum) {
-        if (shapeNum>= 0 && shapeNum<shapeList.size()) {
+        if (shapeNum >= 0 && shapeNum < shapeList.size()) {
             return (Shape) shapeList.get(shapeNum);
         }
         return null;
     }
 
     public void shoWFigures() {
-        System.out.println(shapeList.toString());
+        for (Shape shape : shapeList) {
+            shape.getShapeName();
+        }
     }
 }

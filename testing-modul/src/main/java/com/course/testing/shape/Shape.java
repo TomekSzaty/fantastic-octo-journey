@@ -1,6 +1,6 @@
 package com.course.testing.shape;
 
 public interface Shape {
-    void getShapeName();
+    String getShapeName();
     void getField();
 }

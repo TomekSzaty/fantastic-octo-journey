@@ -43,8 +43,8 @@ public class Triangle implements Shape{
     }
 
     @Override
-    public void getShapeName() {
-        System.out.println("This is: " + getName());
+    public String getShapeName() {
+        return getName();
     }
 
     @Override
