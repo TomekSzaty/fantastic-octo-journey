@@ -1,6 +1,5 @@
 package com.course.testing.forum;
 
-import com.course.testing.SimpleUser;
 import org.junit.jupiter.api.*;
 
 @DisplayName("Forum Test Suite")

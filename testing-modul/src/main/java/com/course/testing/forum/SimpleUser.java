@@ -1,4 +1,4 @@
-package com.course.testing;
+package com.course.testing.forum;
 
 public class SimpleUser {
     private String name;
