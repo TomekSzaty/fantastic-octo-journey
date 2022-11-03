@@ -6,8 +6,8 @@ import java.util.Map;
 public class TemperaturesStub implements Temperatures{
     @Override
     public Map<String, Double> getTemperatures() {
-        Map<String, Double> stubResult = new HashMap<>();
 
+        Map<String, Double> stubResult = new HashMap<>();
         //dummy data
         stubResult.put("Warsaw", 25.4);
         stubResult.put("Gdansk", 22.5);

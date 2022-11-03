@@ -12,13 +12,24 @@ public class WeatherForecast {
         this.temperatures = temperatures;
     }
 
-    public Map<String ,Double> calculateForecast() {
+    public Map<String, Double> calculateForecast() {
 
-        Map<String , Double> resultMap = new HashMap<>();
+        Map<String, Double> resultMap = new HashMap<>();
 
-        for (Map.Entry<String , Double> temperature : temperatures.getTemperatures().entrySet()) {
+        for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet()) {
             resultMap.put(temperature.getKey(), temperature.getValue() + 1.1);
         }
         return resultMap;
     }
+
+    public Double calculateAverageTemperature() {
+        Double sum = 0.0;
+
+        for (Double value : temperatures.getTemperatures().values()) {
+            sum += value;
+        }
+        double averageTemperature = sum / temperatures.getTemperatures().size();
+        return averageTemperature;
+    }
+
 }
