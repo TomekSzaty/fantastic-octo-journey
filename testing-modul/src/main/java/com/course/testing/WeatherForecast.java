@@ -2,8 +2,7 @@ package com.course.testing;
 
 import com.course.testing.weather.stub.Temperatures;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class WeatherForecast {
     private Temperatures temperatures;
@@ -32,4 +31,24 @@ public class WeatherForecast {
         return averageTemperature;
     }
 
+    public Double calculateMedianTemperature() {
+
+        double median = 0;
+        ArrayList<Double> numberList = new ArrayList<>();
+        for (Map.Entry<String ,Double> temperature : temperatures.getTemperatures().entrySet()) {
+            numberList.add(temperature.getValue());
+        }
+        Collections.sort(numberList);
+        if (numberList.size() % 2 == 0) {
+            int sum = 0;
+            for (double element : numberList) {
+                sum += element;
+            }
+            median = sum / 2;
+        } else {
+            Collections.sort(numberList);
+            median = (numberList.get((numberList.size() - 1) / 2) + numberList.get(numberList.size() / 2)) / 2;
+        }
+        return median;
+    }
 }
